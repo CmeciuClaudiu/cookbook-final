@@ -1,0 +1,61 @@
+<mat-toolbar>
+    <div fxShow="true" fxHide.gt-sm="true">
+        <button class="menu-for-mobile-button" mat-mini-fab [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/home">Acasa</button>
+            <button mat-menu-item routerLink="/appetizers">Aperitive</button>
+            <button mat-menu-item routerLink="/first-course">Felul intai</button>
+            <button mat-menu-item routerLink="/main-course">Felul principal</button>
+            <button mat-menu-item routerLink="/desserts">Desert</button>
+            <button mat-menu-item routerLink="/beverages">Smoothie & Drinks</button>
+        </mat-menu>
+    </div>
+
+    <mat-icon class="logo">restaurant</mat-icon>
+
+    <div class="main-nav" fxShow="true" fxHide.lt-md="true">
+        <nav>
+            <a routerLink="/home">Acasa</a>
+        </nav>
+        <nav>
+            <a routerLink="/appetizers">Aperitive</a>
+        </nav>
+        <nav>
+            <a routerLink="/first-course">Felul intai</a>
+        </nav>
+        <nav>
+            <a routerLink="/main-course">Felul principal</a>
+        </nav>
+        <nav>
+            <a routerLink="/desserts">Desert</a>
+        </nav>
+        <nav>
+            <a routerLink="/beverages">Smoothie & Drinks</a>
+        </nav>
+    </div>
+
+    <button class="login-button" 
+            *ngIf="onLoggedInUserCheck()" 
+            mat-button routerLink="/login" 
+            routerlinkactive="active"
+            matTooltip="Spre pagina de logare">Log In
+    </button>
+
+    <button class="login-button" 
+            *ngIf="onLoggedInUserCheck()==false" 
+            mat-button routerLink="/login" 
+            routerlinkactive="active"
+            matTooltip="Deconectare">Log Out</button>
+</mat-toolbar>
+
+ 
+
+
+
+    
+  
+ 
+  

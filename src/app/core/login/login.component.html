@@ -1,0 +1,31 @@
+<div class="login-container">
+    <mat-card>
+        <mat-icon>restaurant</mat-icon>
+        <mat-card-title>Log In</mat-card-title>
+        <mat-card-subtitle>Va rog sa introduceti datele de autentificare</mat-card-subtitle>
+        
+        <mat-card-content>
+          <form [formGroup]="loginForm">
+            <formly-form [form]="loginForm" [fields]="loginFields" [model]="userLogInObject"></formly-form>
+          </form> 
+          <label class="loginFailedLabel" [hidden]="!loginFailedMsg">*Utilizator/Parola gresita</label>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button class="login-button" 
+                    matTooltip="Logare utilizator"
+                    mat-button (click)="onSubmit()">
+                    Log In
+             </button>
+            <button class="register-button" 
+                    mat-button routerLink="/register"
+                    matTooltip="Inregistrare utilizator nou">
+                    Inregistrare
+            </button>>
+        </mat-card-actions>
+
+        <mat-card-footer>
+            Va dorim pofta buna!
+        </mat-card-footer>
+    </mat-card>
+</div>

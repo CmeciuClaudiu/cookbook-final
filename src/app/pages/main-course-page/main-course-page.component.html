@@ -1,0 +1,7 @@
+<div class="main-course-page-container">
+    <h1 class="page-title" *ngIf="!recipeDetails.id">Felul principal</h1>
+    <h1 class="page-title" *ngIf="recipeDetails.id">{{this.recipeDetails.dishName}}</h1>
+    <app-recipes-list *ngIf="!recipeDetails.id" [recipesListDto]="recipesListDto" (recipeId)="getRecipeDetails($event)">
+    </app-recipes-list>
+    <app-recipe-details *ngIf="recipeDetails.id" [recipeDetails]="recipeDetails"></app-recipe-details>
+</div>

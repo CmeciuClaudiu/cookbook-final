@@ -1,0 +1,93 @@
+<div class="add-recipe-container">
+    <h1 class="add-recipe-title">Adaugati o reteta noua</h1>
+    <div class="form-container">
+        <mat-card>
+            <mat-stepper orientation="vertical" [linear]="true">
+                <mat-step [completed]="recipeForm.touched && recipeForm.valid">
+                    <ng-template matStepLabel>Pasul 1</ng-template>
+                    <ng-template matStepContent>
+                        <form [formGroup]="recipeForm">
+                            <formly-form [model]="recipeModel" [fields]="recipeFormFields" [options]="options"
+                                [form]="recipeForm" class="form">
+                            </formly-form>
+                        </form>
+                        <button mat-button matStepperNext>Inainte</button>
+                    </ng-template>
+                </mat-step>
+
+                <mat-step [completed]="descriptionFormControl.valid && instructionsFormControl.valid">
+                    <ng-template matStepLabel>Pasul 2</ng-template>
+                    <ng-template matStepContent>
+                        <br>
+                        <mat-form-field appearance="fill" class="prep-description-style" >
+                            <mat-label>Descriere preparat</mat-label>
+                            <textarea matInput rows="8" required [formControl]="descriptionFormControl"></textarea>
+                            <mat-error *ngIf="descriptionFormControl.hasError('required')">
+                                Acest camp nu poate fi gol
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="prep-instructions-style">
+                            <mat-label>Instructiuni</mat-label>
+                            <textarea matInput rows="8" required [formControl]="instructionsFormControl"></textarea>
+                            <mat-error *ngIf="instructionsFormControl.hasError('required')">
+                                Acest camp nu poate fi gol
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <button mat-button matStepperPrevious>Inapoi</button>
+                        <button mat-button matStepperNext>Inainte</button>
+                    </ng-template>
+
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Pasul 3</ng-template>
+                    <ng-template matStepContent>
+                        <h1 class="add-recipe-title">Lista ingrediente</h1>
+                        <mat-list>
+                            <mat-list-item *ngFor="let item of quantitiesObjList">
+                                        {{item.name}}: ({{item.quantity}})
+                                 
+                                    <button mat-icon-button class="btn-delete-ingredient" (click)="removeIngredient(item.name)">
+                                        <mat-icon>clear</mat-icon>
+                                    </button>
+                                    <mat-divider></mat-divider>
+                            </mat-list-item>
+                            
+                        </mat-list>
+                          <br>
+                        <mat-form-field appearance="outline" class="ingredients-formField-styles">
+                            <mat-label>Alegeti ingredientul</mat-label>
+                            <input matInput placeholder="Cautati ingredientul" [formControl]="ingredientsFormControl" [matAutocomplete]="auto">
+                            <mat-icon matSuffix> search</mat-icon>
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions  | async" [value]="option.name">
+                                  {{option.name}}
+                                </mat-option>
+                              </mat-autocomplete>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="ingredients-formField-styles">
+                            <mat-label>Cantitatea necesara</mat-label>
+                            <input matInput placeholder="Placeholder" [formControl]="quantitiesFormControl">
+                            <mat-icon matSuffix> border_color</mat-icon>
+                            <mat-error *ngIf="quantitiesFormControl.hasError('maxlength')">
+                                Ati introdus prea multe caractere
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-icon-button (click)="addIngredient()">
+                            <mat-icon>add</mat-icon>
+                          </button>
+                          <br>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext (click)="openPostConfirmationDialog()" [disabled]="!this.recipeModel.ingredientsQuantities">Pasul final</button>
+                          <mat-label *ngIf="!this.recipeModel.ingredientsQuantities" class="last-step-label">*Va rog introduceti ingredientele</mat-label>
+                    </ng-template>
+                    
+                </mat-step>
+                </mat-stepper>
+
+        </mat-card>
+
+    </div>
+</div>

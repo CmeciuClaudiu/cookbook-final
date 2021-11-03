@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; background-color:#D3D3D3;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.plainTextSnackBar{
+    color: rgba(4, 4, 236, 0.966);
+    background-color:rgb(215, 215, 248);
+}

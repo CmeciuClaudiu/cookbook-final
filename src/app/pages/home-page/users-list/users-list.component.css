@@ -1,0 +1,34 @@
+.users-list-container{
+    display: flex;
+    flex-direction: column;
+    background-color:#EDF4F4
+}
+
+.users-list-title{
+    align-self: center;
+    color:orange;
+    margin-top:12px;
+}
+
+.role-details{
+  align-self: center;
+  font-size: 10;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

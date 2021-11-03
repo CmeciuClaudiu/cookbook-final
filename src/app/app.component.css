@@ -1,0 +1,31 @@
+.app-container{
+    background-color: azure;
+    width: 100%;
+    min-height:100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    position:sticky;
+    z-index:99999;
+    top:0;
+}
+
+.page-content{
+    background-color: azure;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+    margin-top:2px;
+    flex: 1 0 auto;
+}
+
+.footer{
+    background-color:lightgray;
+    width: 100%;
+    flex-shrink: 0;
+}

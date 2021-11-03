@@ -1,0 +1,49 @@
+<div class="register-container">
+
+    <mat-card>
+        <mat-icon>restaurant</mat-icon>
+        <mat-card-title>Inregistrare</mat-card-title>
+        <mat-card-subtitle>Va rugam sa completati formularul de inregistrare</mat-card-subtitle>
+        <mat-card-content>
+
+            <mat-stepper class="stepper" [orientation]="(stepperOrientation | async)!" [linear]="true">
+
+                <mat-step [stepControl]="form" label="Introduceti numele si email-ul" [completed]="form.valid">
+                    <form [formGroup]="form">
+                        <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step [stepControl]="passwordForm" label="Introduceti parola" [completed]="passwordForm.valid">
+                    <form [formGroup]="passwordForm">
+                        <formly-form [form]="passwordForm" [fields]="passwordFields" [model]="pwdObject"></formly-form>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Ultimul pas</ng-template>
+                    <br>
+                    <h1>Echipa cookbook va multumeste!</h1>
+                    <br>
+                    <button class="register-button" mat-button type="submit" (click)="onSubmit()">
+                        Inregistrare
+                    </button>
+                    <br>
+                    <label class="valid-message-label">*Apasati aici pentru inregistrare</label>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                    </div>
+                </mat-step>
+
+            </mat-stepper>
+        </mat-card-content>
+    </mat-card>
+      
+</div>

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Salut {{data.userName}}</h1>
+<div mat-dialog-content class="dialog-content" *ngIf="data.confirm==null">
+  <p>Din motive de securitate va rugam sa reintroduceti parola</p>
+  <mat-form-field appearance="fill" >
+    <mat-label>Parola</mat-label>
+    <input matInput type="password" [formControl]="length">
+    <mat-error *ngIf="length.invalid">*minim 6 caractere</mat-error>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions *ngIf="data.confirm==null">
+  <button mat-button [mat-dialog-close]="data.password" [disabled]="length.invalid" cdkFocusInitial>Ok</button>
+</div>
+
+<div mat-dialog-content class="confirmation-dialog-content" *ngIf="data.confirm!=null">
+  <p>Sunteti sigur ca doriti sa continuati operatiunea?</p>
+  <button mat-button [mat-dialog-close]="false">Anulare</button>
+  <button mat-button [mat-dialog-close]="true">Ok</button>
+</div>

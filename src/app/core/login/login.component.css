@@ -1,0 +1,60 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgb(10, 83, 126) 0%, rgb(10, 83, 126) 50%, rgb(121, 182, 152) 50%, rgb(121, 182, 152));
+    height:600px;
+}
+
+mat-card{
+    margin-top:60px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    width:400px;
+    height: 400px;
+    margin-bottom: 100px;
+}
+
+mat-card-title{
+    align-self: center;
+    flex: 1;
+    margin-bottom:26px;
+    font-size: 35px;
+}
+
+.login-button{
+    background-color:teal;
+    color: white;
+}
+.register-button{
+    background-color:teal;
+    color: white;
+}
+mat-card-actions{
+    margin-left: 5px;
+}
+
+mat-card-footer{
+    background-color:#d3d3d3;
+    text-align: center;
+}
+
+mat-icon{
+    margin-bottom: 30px;
+    align-self: center;
+    transform: scale(1.6);
+    background-color:teal;
+    border-radius: 30px;
+    padding: 3px;
+}
+
+mat-icon:hover{
+    transform:scale(1.7);
+    background-color:rgb(3, 105, 105)
+}
+
+.loginFailedLabel{
+    color: red;
+    font-size: 12px;
+}

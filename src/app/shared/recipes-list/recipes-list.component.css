@@ -1,0 +1,31 @@
+.recipes-list-container{
+    display:flex;
+    flex-direction:column;
+}
+
+.searchbox-container{
+    display:flex;
+    width:100%;
+}
+
+.search-formfield{
+    width:100%;
+}
+
+.card{
+    width: 364px;
+    height: 308px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    background-color:rgb(244, 245, 247);
+    cursor: pointer;
+}
+
+@media (max-width: 420px){
+    .card{
+        width: 280px;
+        height: 270px;
+    }
+}

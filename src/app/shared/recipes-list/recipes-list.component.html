@@ -1,0 +1,24 @@
+<div class="recipes-list-container">
+<div class="searchbox-container">
+
+    <button mat-fab matTooltip="Cautati reteta" color="primary" (click)="showFilter=!showFilter">
+        <mat-icon>search</mat-icon>
+    </button>
+
+    <mat-form-field appearance="outline" *ngIf="showFilter" class="search-formfield">
+        <mat-label>Cautati reteta</mat-label>
+        <input matInput placeholder="ex..Limonada" [formControl]="filterCtrl" (ngModelChange)="filterList($event)">
+    <mat-icon matSuffix>search</mat-icon>
+
+    </mat-form-field>
+</div>
+<mat-grid-list cols="{{colNumber}}" rowHeight="360px">
+    <mat-grid-tile *ngFor="let element of this.filteredRecipesDto">
+        <mat-card matRipple [matRippleCentered]=true [matRippleRadius]="220" (click)="sendRecipeId(element.id)" class="card">
+            <mat-card-title>{{element.dishName}}</mat-card-title>
+            <img mat-card-image src="{{element.image}}" alt="Something went wrong">
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+  

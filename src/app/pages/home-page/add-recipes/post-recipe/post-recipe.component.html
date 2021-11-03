@@ -1,0 +1,118 @@
+<div class="post-recipe-container">
+    <h1 class="post-recipe-title">Reteta dumneavoastra</h1>
+    <h3 class="post-recipe-subtitle">(va rugam sa verificati daca datele sunt corecte)</h3>
+    <mat-card class="information-card">
+        <div class="labels" *ngIf="!allowEdit">
+            <mat-label><b>Nume preparat: </b>{{this.dbRecipeObject.dishName}}</mat-label>
+            <mat-label><b>Timp de gatire (minute): </b>{{this.dbRecipeObject.preparationTime}}</mat-label>
+            <mat-label><b>URL poza: </b>{{this.dbRecipeObject.image}}</mat-label>
+        </div>
+        <h1 class="edit-mode-title" *ngIf="allowEdit">Editati:</h1>
+        <button mat-button class="edit-button" *ngIf="!allowEdit" (click)="allowEdit=!allowEdit" matTooltip="Editati">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button class="edit-button" *ngIf="allowEdit" (click)=onBasicInfoSave() matTooltip="Salvati">
+            <mat-icon>save</mat-icon>
+        </button>
+    </mat-card>
+    <form *ngIf="allowEdit">
+
+        <mat-form-field appearance="outline" class="basic-form-field">
+            <mat-label>Nume preparat</mat-label>
+            <input matInput [formControl]="dishNameCtrl">
+            <mat-error *ngIf="dishNameCtrl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+            <mat-error *ngIf="dishNameCtrl.hasError('maxlength')">
+                Lungime maxima 50 caractere
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="basic-form-field">
+            <mat-label>Link imagine prezentare</mat-label>
+            <input matInput [formControl]="imageUrlCtrl">
+            <mat-error *ngIf="dishNameCtrl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+            <mat-error *ngIf="dishNameCtrl.hasError('maxlength')">
+                Lungime maxima 50 caractere
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Timp de gatitre (minute)</mat-label>
+            <input matInput type="number" (keypress)="($event.charCode >= 48 && $event.charCode < 58)"
+                [formControl]="prepTimeCtrl" placeholder={{this.dbRecipeObject.preparationTime}}>
+            <mat-error *ngIf="prepTimeCtrl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+            <mat-error *ngIf="prepTimeCtrl.hasError('pattern')">
+                Va rog introduceti un numar in intervalul 1-500
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="dishType-formfield">
+            <mat-label>Tipul preparatului</mat-label>
+            <mat-select [formControl]="dishTypeCtrl" value={{this.dbRecipeObject.dishType}}>
+                <mat-option value="1">1.Aperitive</mat-option>
+                <mat-option value="2">2.Felul intai</mat-option>
+                <mat-option value="3">3.Fel principal</mat-option>
+                <mat-option value="4">4.Desert</mat-option>
+                <mat-option value="5">5.Smoothie & Drinks</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
+    <mat-card class="more-information-card">
+        <mat-card class="description-card" *ngIf="!allowInstructionsEdit"><b>Descriere:
+            </b>{{this.dbRecipeObject.description}}</mat-card>
+        <mat-card class="description-card" *ngIf="!allowInstructionsEdit"><b>Instructiuni:
+            </b>{{this.dbRecipeObject.instructions}}</mat-card>
+        <h1 class="edit-mode-title" *ngIf="allowInstructionsEdit">Editati:</h1>
+        <button mat-button class="edit-button" *ngIf="!allowInstructionsEdit"
+            (click)="allowInstructionsEdit=!allowInstructionsEdit" matTooltip="Editati">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button class="edit-button" *ngIf="allowInstructionsEdit" (click)=onInstructionsSave()
+            matTooltip="Salvati">
+            <mat-icon>save</mat-icon>
+        </button>
+    </mat-card>
+
+    <form *ngIf="allowInstructionsEdit">
+        <mat-form-field appearance="outline" class="prep-description-style">
+            <mat-label>Descriere preparat</mat-label>
+            <textarea matInput rows="8" required [formControl]="descriptionFormControl"></textarea>
+            <mat-error *ngIf="descriptionFormControl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="prep-instructions-style">
+            <mat-label>Instructiuni</mat-label>
+            <textarea matInput rows="8" required [formControl]="instructionsFormControl"></textarea>
+            <mat-error *ngIf="instructionsFormControl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+        </mat-form-field>
+    </form>
+
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Introduceti parola</mat-label>
+            <input matInput type="password" [formControl]="userPasswordFormControl" required>
+            <mat-error *ngIf="userPasswordFormControl.hasError('required')">
+                Acest camp nu poate fi gol
+            </mat-error>
+            <mat-error *ngIf="userPasswordFormControl.hasError('minlength')">
+                Minim 6 caractere
+            </mat-error>
+        </mat-form-field>
+    </form>
+
+    <div class="save-recipe-buttons">
+        <button mat-button (click)=onComponentClose()>Anulare</button>
+        <button mat-button class="save-recipe-btn" 
+                           [disabled]="allowInstructionsEdit || allowEdit || userPasswordFormControl.invalid"  
+                           (click)=onRecipePost()>Salvati reteta</button>
+    </div>
+</div>

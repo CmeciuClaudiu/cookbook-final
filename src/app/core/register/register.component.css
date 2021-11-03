@@ -1,0 +1,49 @@
+.register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card{
+    margin-top:60px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    width:800px;
+    height: auto;
+    margin-bottom: 100px;
+}
+
+mat-card-title{
+    align-self: center;
+    flex: 1;
+    margin-bottom:26px;
+    font-size: 35px;
+}
+
+.register-button{
+    display: flex;
+    float: left;
+    background-color:teal;
+    color: white;
+}
+
+.stepper {
+    margin-top: 8px;
+}
+  
+.mat-form-field {
+    margin-top: 16px;
+}
+
+h1{
+    text-align: center;
+    font-size: 28px;
+    font-weight:bold;
+}
+
+.valid-message-label{
+    font-size: 12px;
+    margin-left:12px;
+}
+

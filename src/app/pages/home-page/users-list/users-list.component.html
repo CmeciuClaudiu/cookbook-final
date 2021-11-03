@@ -1,0 +1,46 @@
+<div class="users-list-container">
+    <h1 class="users-list-title">Lista utilizatorilor</h1>
+    <h3 class="role-details">(*Roluri: 1.Administrator, 2.Utlilizator)</h3>
+    <div class="users-list-table">
+          <mat-form-field appearance="standard">
+            <mat-label>Cautare</mat-label>
+             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Admin" #input> 
+          </mat-form-field> 
+
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
+            
+            <ng-container matColumnDef="Id">
+              <mat-header-cell *matHeaderCellDef> Nr. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="Nume">
+              <mat-header-cell *matHeaderCellDef> Nume </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+            </ng-container>
+          
+       
+            <ng-container matColumnDef="Rol">
+              <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.userRole}} </mat-cell>
+            </ng-container>
+          
+           
+            <ng-container matColumnDef="Stergeti">
+              <mat-header-cell *matHeaderCellDef> Stergeti </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <button mat-button (click)="onDeleteValidation(element.userName,element.userRole)">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>  
+              </mat-cell>
+            </ng-container> 
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <mat-paginator [pageSizeOptions]="[7, 14, 21]"
+          showFirstLastButtons></mat-paginator>
+    </div>
+</div>

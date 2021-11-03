@@ -1,0 +1,25 @@
+<div class="recipe-details-container">
+    <button mat-mini-fab color="primary" class="back-btn" matTooltip="Inapoi" (click)="this.recipeDetails.id=''">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <mat-card class="description-card">
+        <h1 class="title-header">Descriere:</h1>
+        {{this.recipeDetails.description}}
+        <p>Timp de gatire: {{this.recipeDetails.preparationTime}} minute </p>
+    </mat-card>
+    <div class="general-details">
+        <mat-card class="picture-container">
+            <img mat-card-image src="{{this.recipeDetails.image}}">
+        </mat-card>
+        <mat-card class="ingredients-card">
+            <h1 class="title-header">Ingrediente:</h1>
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let element of this.recipeDetails.ingredientsQuantities">{{element.name}}: {{element.quantity}}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </div>
+    <mat-card class="instructions-card">
+        <h1 class="title-header">Instructiuni: </h1>
+        {{this.recipeDetails.instructions}}
+    </mat-card>
+</div>

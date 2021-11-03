@@ -1,0 +1,75 @@
+.back-btn{
+    position: fixed;
+    z-index: 9;
+    margin-top:-50px;
+    margin-left: 5px;
+} 
+
+.recipe-details-container{
+    background: #F0FFFF;
+  background-image: linear-gradient(90deg, rgba(122,203,206,0.5) 50%, transparent 0),
+    linear-gradient( rgba(95,158,160,0.5) 50%, transparent 0);
+  background-size: 500px 500px;
+}
+
+.title-header{
+    color:orange;
+}
+
+.description-card{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items:center;
+}
+
+.general-details{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.picture-container{
+   width: fit-content;
+   height: fit-content;
+}
+
+.ingredients-card{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    width:300px;
+}
+
+.instructions-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+@media screen and (max-width:956px){
+    .general-details{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        margin-bottom: 10px;
+        margin-top:10px;
+    }
+
+    .ingredients-card{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        width:300px;
+        margin-top:10px;
+    }
+}
+
+
