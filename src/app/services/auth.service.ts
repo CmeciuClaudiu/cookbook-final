@@ -28,6 +28,6 @@ export class AuthService {
   sharedUserDetails$ = {} as UserModel;
   
   logout() :void {    
-    localStorage.setItem('isLoggedIn','false');    
+    this.sharedUserDetails$ = {} as UserModel;    
   }    
 }

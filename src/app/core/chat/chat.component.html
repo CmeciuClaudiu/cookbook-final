@@ -1,0 +1,19 @@
+<div class="chat-container">
+    <h2>Global Chat</h2>
+    <div class="chat-msg-history">
+        <div *ngFor="let mObj of msgInboxArray">
+            <div  [ngClass]="mObj.username === msgDto.username ? 'sent-msg' : 'recieved-msg'">
+                <p><b>{{mObj.username}}:</b> <br>  {{mObj.message}}</p>
+            </div>
+            <p class="chat-date">{{mObj.dateTime | date: 'medium'}}</p>
+        </div>
+    </div>
+    <mat-form-field class="chat-form-field" appearance="outline">
+        <mat-label>Mesaj</mat-label>
+        <input matInput [(ngModel)]="msgDto.message" >
+        <button mat-icon-button color="primary" matSuffix (click)="send()">
+            <mat-icon>send</mat-icon>
+        </button>
+        
+      </mat-form-field>
+</div>

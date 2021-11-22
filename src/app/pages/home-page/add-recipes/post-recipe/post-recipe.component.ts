@@ -69,6 +69,7 @@ export class PostRecipeComponent implements OnInit {
     this.dishNameCtrl.setValue(this.dbRecipeObject.dishName);
     this.prepTimeCtrl.setValue(this.dbRecipeObject.preparationTime);
     this.imageUrlCtrl.setValue(this.dbRecipeObject.image);
+    this.dishTypeCtrl.setValue(this.dbRecipeObject.dishType);
   }
 
   ngOnDestroy() {

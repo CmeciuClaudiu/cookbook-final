@@ -18,8 +18,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.userRole=this.authService.sharedUserDetails$.userRole;
   }
-
-  ngOnDestroy(){
-    
-  }
 }

@@ -20,7 +20,8 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { SharedModule } from '../shared/shared.module';
 import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
-import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ChatComponent } from './chat/chat.component'
 
 export function fieldMatchValidator(control: AbstractControl) {
   const { password, passwordChck } = control.value;
@@ -40,7 +41,8 @@ export function fieldMatchValidator(control: AbstractControl) {
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
@@ -75,6 +77,7 @@ export function fieldMatchValidator(control: AbstractControl) {
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    ChatComponent,
     CommonModule
   ],
   providers: [

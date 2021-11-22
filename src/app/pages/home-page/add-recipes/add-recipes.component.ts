@@ -44,7 +44,7 @@ export class AddRecipesComponent implements OnInit {
     Validators.maxLength(10)
   ]);
 
- 
+
   ngOnInit(): void {
 
     this.getAllIngredients();
@@ -162,7 +162,7 @@ export class AddRecipesComponent implements OnInit {
         copyOfQuantitiesObjList.push(element);
       }
     });
-    
+
     this.quantitiesObjList = copyOfQuantitiesObjList;
     this.recipeModel.ingredientsQuantities = this.quantitiesObjList;
 
@@ -173,6 +173,9 @@ export class AddRecipesComponent implements OnInit {
     const filterValue = value.toLowerCase();
     return this.ingredientsList.filter((option: { name: string; }) => option.name.toLowerCase().includes(filterValue));
   }
+
+  ngOnDestroy(){
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
 }
-
-

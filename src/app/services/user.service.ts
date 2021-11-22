@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserModel } from 'src/app/models/user-model';
 import { Observable } from 'rxjs';
+import { CommentsDboModel } from '../models/comments-model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,15 @@ export class UserService {
                                    .set("password",password);
 
       return this.http.delete<string>('http://cookbook.ddns.net:5000/api/users' ,{ responseType: 'text' as 'json' , params:params});
+  }
+
+  getComments(recipeId: string){
+    let params =new HttpParams().set("recipeId",recipeId);
+
+    return this.http.get<CommentsDboModel[]>('http://cookbook.ddns.net:5000/api/users/comments',{params:params})
+  }
+
+  postComment (userComment: CommentsDboModel){
+    return this.http.post('http://cookbook.ddns.net:5000/api/users/comments',userComment)
   }
 }

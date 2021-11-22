@@ -16,9 +16,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
+import { RecipeCommentsComponent } from './recipe-details/recipe-comments/recipe-comments.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
-  declarations: [SnackbarComponent, DialogComponent, RecipesListComponent, RecipeDetailsComponent],
+  declarations: [SnackbarComponent, DialogComponent, RecipesListComponent, RecipeDetailsComponent, RecipeCommentsComponent, RatingComponent],
   imports: [
     CommonModule,
     MatSnackBarModule,
@@ -33,7 +36,8 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatRippleModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    MatDividerModule
   ],
   exports: [
     SnackbarComponent,

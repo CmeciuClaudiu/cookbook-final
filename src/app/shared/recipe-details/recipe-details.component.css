@@ -14,6 +14,7 @@
 
 .title-header{
     color:orange;
+    align-self: center;
 }
 
 .description-card{
@@ -51,6 +52,7 @@
     align-items: center;
     justify-content:center;
 }
+
 
 @media screen and (max-width:956px){
     .general-details{

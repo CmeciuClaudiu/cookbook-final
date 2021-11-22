@@ -12,6 +12,8 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
 import { HashLocationStrategy,  LocationStrategy} from '@angular/common'; 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HashLocationStrategy,  LocationStrategy} from '@angular/common';
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
     FormlyMaterialModule,
     HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [AuthGuard , { provide: LocationStrategy, useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]

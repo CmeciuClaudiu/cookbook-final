@@ -14,7 +14,8 @@
         <mat-card class="ingredients-card">
             <h1 class="title-header">Ingrediente:</h1>
             <mat-list role="list">
-                <mat-list-item role="listitem" *ngFor="let element of this.recipeDetails.ingredientsQuantities">{{element.name}}: {{element.quantity}}</mat-list-item>
+                <mat-list-item role="listitem" *ngFor="let element of this.recipeDetails.ingredientsQuantities">
+                    {{element.name}}: {{element.quantity}}</mat-list-item>
             </mat-list>
         </mat-card>
     </div>
@@ -22,4 +23,5 @@
         <h1 class="title-header">Instructiuni: </h1>
         {{this.recipeDetails.instructions}}
     </mat-card>
+    <app-recipe-comments [recipeId]="recipeId" *ngIf="this.user.userName"></app-recipe-comments>
 </div>

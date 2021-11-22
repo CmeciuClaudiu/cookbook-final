@@ -1,0 +1,32 @@
+<div class="comments-section">
+
+    <div class="form-section">
+        <h1 class="title-header">Lasati un comentariu:</h1>
+
+        <mat-form-field class="comments-form-area" appearance="outline">
+            <mat-label>Parerea dumneavoastra conteaza...</mat-label>
+            <textarea [formControl]="msgFormCtrl" matInput placeholder="Lasati un mesaj"></textarea>
+        </mat-form-field>
+        <div class="form-posting-section">
+            <p>Dati o nota preparatului: </p>
+            <app-rating [rating]='rating' (ratingUpdated)='onRatingUpdate($event)'></app-rating>
+        </div>
+        <button class="add-comment-btn" mat-button (click)="onCommentPost()">Adaugati</button>
+    </div>
+
+    <div class="comments-list">
+        <h1 class="comments-title-header">Opiniile utilizatorilor:</h1>
+        <div class="comments-list-element" *ngFor="let comm of commentsArr">
+            <p><b>{{comm.userName}}</b> &nbsp; <i>({{comm.currentDate | date: 'medium'}})</i>: &nbsp;</p>
+            <p>
+                <mat-icon *ngFor='let star of stars(comm.rating)'>
+                    star
+                </mat-icon>
+            </p>
+            <p>
+                {{comm.message}}
+            </p>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+</div>

@@ -38,14 +38,14 @@
     </div>
 
     <button class="login-button" 
-            *ngIf="onLoggedInUserCheck()" 
+            *ngIf="onLoggedInUserCheck()==false" 
             mat-button routerLink="/login" 
             routerlinkactive="active"
             matTooltip="Spre pagina de logare">Log In
     </button>
 
     <button class="login-button" 
-            *ngIf="onLoggedInUserCheck()==false" 
+            *ngIf="onLoggedInUserCheck()" 
             mat-button routerLink="/login" 
             routerlinkactive="active"
             matTooltip="Deconectare">Log Out</button>

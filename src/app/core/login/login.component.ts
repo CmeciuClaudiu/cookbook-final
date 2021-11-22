@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
         placeholder: 'Introduceti parola: ',
         type: 'password',
         required: true,
-        minLength: 6
+        minLength: 6,
+        maxLength: 32
       }
     }];
 
@@ -60,7 +61,6 @@ export class LoginComponent implements OnInit {
 
   onValidForm(){
     if (this.userLogInObject.username === this.userModel.userName) {
-      localStorage.setItem('isLoggedIn', "true");
       this.authService.sharedUserDetails$ = this.userModel;
 
       this.router.navigate(['/home']);
