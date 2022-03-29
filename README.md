@@ -18,4 +18,4 @@
  -It can add recipes into the database and also can see the users list with possibility to delete any user (except himself and users with administrative privileges)
  
  Other mentions: All data validation is made in both frontend and backend part of the application. 
- Link (hosted on personal PC): http://cookbook.ddns.net/cookbook/ (if it doesn't work at all or malfunctions it means the API and/or Web Service are offline)
+ Link (hosted on personal PC): http://claudiuc.ddns.net/cookbook/ (if it doesn't work at all or malfunctions it means the API and/or Web Service are offline)
