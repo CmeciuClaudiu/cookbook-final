@@ -1,19 +1,22 @@
 .home-page-container{
     display:flex;
     background-color:rgb(242, 249, 253);
-    width: 100%;
+    position:relative;
+    width: 95%;
+    margin: auto;
     height: 100%;
-    border-style:groove;
+    /* border-style:groove;
     border-radius:20px;
-    border-color:rgb(127, 171, 236);
+    border-color:rgb(127, 171, 236); */
     flex-direction: column;
 }
 
 .content{
-    flex: 1;
+    position: relative;
     align-self: center;
     background-color: #EDF4F4;
-    width: 96%;
+    width: 100%;
+    max-height: 100%;
 }
 
 h1{
@@ -31,7 +34,7 @@ h2{
 }
 
 .tab-container{
-    height:650px;
+    min-height: 600px;
 }
 
 @media (max-width: 650px){
@@ -46,5 +49,9 @@ h2{
         color:orange;
         font-weight:bold;  
         text-align:center;
+      }
+    
+      .home-page-container{
+          width: 100%;
       }
 }

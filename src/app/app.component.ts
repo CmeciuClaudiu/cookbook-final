@@ -32,8 +32,8 @@ export class AppComponent {
       this.chatIsOpened=false;
       return false;
     }
-    else
-      return true;
+    
+    return true;
   }
 
   openChat() :boolean{

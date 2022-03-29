@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
   onLoggedInUserCheck():boolean{
     if (!this.authService.sharedUserDetails$.userName)
       return false;
-    else
-      return true;
+    return true;
   }
 }

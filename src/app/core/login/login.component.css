@@ -1,9 +1,13 @@
 .login-container{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, rgb(10, 83, 126) 0%, rgb(10, 83, 126) 50%, rgb(121, 182, 152) 50%, rgb(121, 182, 152));
-    height:600px;
+    height: 80%;
+    width: 80%;
+    margin:auto;
+    top: 10%;
 }
 
 mat-card{
@@ -57,4 +61,12 @@ mat-icon:hover{
 .loginFailedLabel{
     color: red;
     font-size: 12px;
+}
+
+@media screen and (max-width: 960px){
+    .login-container{
+        height: 100%;
+        width: 100%;
+        top: 0;
+    }
 }

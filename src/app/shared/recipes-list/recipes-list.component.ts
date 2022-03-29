@@ -20,7 +20,6 @@ export class RecipesListComponent implements OnInit {
   filterCtrl = new FormControl;
   @Output() recipeId = new EventEmitter<string>();
 
-  test: DtoRecipeModel = {} as DtoRecipeModel;
 
   constructor() {
 
@@ -36,7 +35,6 @@ export class RecipesListComponent implements OnInit {
   }
 
   setColumnNumber() {
-
     if (this.screenWidth > 2010) {
       this.colNumber = 5;
       return;
@@ -55,10 +53,10 @@ export class RecipesListComponent implements OnInit {
     if (this.screenWidth > 855) {
       this.colNumber = 2;
       return;
-    } else {
-      this.colNumber = 1;
-      return;
     }
+
+    this.colNumber = 1;
+    return; 
   }
 
   filterList($event: any) {

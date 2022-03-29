@@ -2,7 +2,7 @@
     <h2>Global Chat</h2>
     <div class="chat-msg-history">
         <div *ngFor="let mObj of msgInboxArray">
-            <div  [ngClass]="mObj.username === msgDto.username ? 'sent-msg' : 'recieved-msg'">
+            <div  [ngClass]="mObj.username === msgDto.username ? 'recieved-msg' : 'sent-msg'">
                 <p><b>{{mObj.username}}:</b> <br>  {{mObj.message}}</p>
             </div>
             <p class="chat-date">{{mObj.dateTime | date: 'medium'}}</p>

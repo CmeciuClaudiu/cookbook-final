@@ -9,10 +9,10 @@ import { MessageDto } from '../models/chat-models';
 })
 export class ChatService {
 
-  private  connection: any = new signalR.HubConnectionBuilder().withUrl("http://cookbook.ddns.net:5000/chatsocket")   // mapping to the chathub as in startup.cs
+  private  connection: any = new signalR.HubConnectionBuilder().withUrl("http://claudiuc.ddns.net:5000/chatsocket")   // mapping to the chathub as in startup.cs
                                          .configureLogging(signalR.LogLevel.Information)
                                          .build();
-  readonly POST_URL = "http://cookbook.ddns.net:5000/api/chat/send"
+  readonly POST_URL = "http://claudiuc.ddns.net:5000/api/chat/send"
 
   private receivedMessageObject: MessageDto = {} as MessageDto;
   private sharedObj = new Subject<MessageDto>();
@@ -51,6 +51,6 @@ export class ChatService {
   }
 
   getMessageHistory(){
-    return this.http.get<MessageDto[]>('http://cookbook.ddns.net:5000/api/chat/getMessagesHistory')
+    return this.http.get<MessageDto[]>('http://claudiuc.ddns.net:5000/api/chat/getMessagesHistory')
   }
 }

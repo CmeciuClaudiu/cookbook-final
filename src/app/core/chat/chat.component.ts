@@ -40,5 +40,4 @@ export class ChatComponent implements OnInit{
     newObj.dateTime=obj.dateTime;
     this.msgInboxArray.unshift(newObj);
   }
-
 }

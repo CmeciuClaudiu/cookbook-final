@@ -61,13 +61,11 @@ export class LoginComponent implements OnInit {
 
   onValidForm(){
     if (this.userLogInObject.username === this.userModel.userName) {
-      this.authService.sharedUserDetails$ = this.userModel;
-
-      this.router.navigate(['/home']);
-    } else {
-      this.loginFailedMsg = true;
-      this.loginForm.reset();
-    }
+        this.authService.sharedUserDetails$ = this.userModel;
+        this.router.navigate(['/home']);
+    } 
+    this.loginFailedMsg = true;
+    this.loginForm.reset();
   }
 
   onSubmit() {
@@ -75,12 +73,11 @@ export class LoginComponent implements OnInit {
       this.loginFailedMsg = true;
       return;
     }
-    else {
-      this.userService.getUserDetails(this.userLogInObject.username, this.userLogInObject.password).pipe(takeUntil(this.destroy$))
-        .subscribe(res => {
+    
+    this.userService.getUserDetails(this.userLogInObject.username, this.userLogInObject.password).pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
           this.userModel = res;
           this.onValidForm();
-        })
-    }
+      })
   }
 }
